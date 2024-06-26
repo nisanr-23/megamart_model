@@ -1,0 +1,41 @@
+class Vendor {
+  String id;
+  String name;
+  String email;
+  String profilePicture;
+  String businessName;
+  Address businessAddress;
+  String phone;
+  String approvalStatus;
+  DateTime createdAt;
+  DateTime updatedAt;
+
+  Vendor({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.profilePicture,
+    required this.businessName,
+    required this.businessAddress,
+    required this.phone,
+    required this.approvalStatus,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+}
+
+class Address {
+  String street;
+  String city;
+  String state;
+  String zipCode;
+  String country;
+
+  Address({
+    required this.street,
+    required this.city,
+    required this.state,
+    required this.zipCode,
+    required this.country,
+  });
+}

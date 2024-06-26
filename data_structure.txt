@@ -1,0 +1,158 @@
+1. Admins Collection
+Collection: admins
+
+Documents: Each document represents an admin and has the admin ID as the document ID.
+
+Fields:
+
+name: string
+email: string
+profilePicture: string (URL)
+phone: string
+createdAt: timestamp
+updatedAt: timestamp
+
+
+
+
+2. Vendors Collection
+Collection: vendors
+
+Documents: Each document represents a vendor and has the vendor ID as the document ID.
+
+Fields:
+
+name: string
+email: string
+shortDescription: string
+vendorPhotoUrl: string(owners photo)
+businessName: string
+businessLogoUrl:string(profile picture)
+businessAddress: map
+nidPhotoUrl: string
+street: string
+city: string
+state: string
+zipCode: string
+country: string
+phone: string
+approvalStatus: string (values: pending, approved, rejected)
+pendingApproval:bool
+createdAt: timestamp
+updatedAt: timestamp
+
+
+
+3. Customers Collection
+Collection: customers
+
+Documents: Each document represents a customer and has the customer ID as the document ID.
+
+Fields:
+
+name: string
+email: string
+profilePicture: string (URL)
+address: map
+street: string
+city: string
+state: string
+zipCode: string
+country: string
+phone: string
+createdAt: timestamp
+updatedAt: timestamp
+
+
+
+4. Products Collection
+Collection: products
+
+Documents: Each document represents a product and has the product ID as the document ID.
+
+Fields:
+
+name: string
+description: string
+price: number
+category: string (reference to categories collection)
+images: array of strings (URLs)
+vendorId: string (reference to the vendors collection)
+stock: number
+approvalStatus: string (values: pending, approved, rejected)
+dynamicFields: map (fields added dynamically based on the category)
+createdAt: timestamp
+updatedAt: timestamp
+
+
+
+5. Categories Collection
+Collection: categories
+
+Documents: Each document represents a category and has the category ID as the document ID.
+
+Fields:
+
+name: string
+description: string
+imageUrl: string (URL)
+fields: array of maps (dynamically added fields by admin)
+fieldName: string
+fieldType: string (values: text, number, dropdown, date)
+options: array of strings (only for dropdown field type)
+fixedFields: array of maps (predefined fields for all categories)
+fieldName: string
+fieldType: string
+
+
+
+6. Orders Collection
+Collection: orders
+
+Documents: Each document represents an order and has the order ID as the document ID.
+
+Fields:
+
+customerId: string (reference to the customers collection)
+products: array of maps
+productId: string (reference to the products collection)
+quantity: number
+price: number
+totalAmount: number
+shippingAddress: map (similar to address in customers)
+orderStatus: string (values: pending, shipped, delivered, cancelled)
+createdAt: timestamp
+updatedAt: timestamp
+trackingNumber: string
+
+
+
+7. Promotions Collection
+Collection: promotions
+
+Documents: Each document represents a promotion or discount and has the promotion ID as the document ID.
+
+Fields:
+
+code: string
+description: string
+discountPercentage: number
+validFrom: timestamp
+validTo: timestamp
+active: boolean
+
+
+
+8. Support Tickets Collection
+Collection: support_tickets
+
+Documents: Each document represents a support ticket and has the ticket ID as the document ID.
+
+Fields:
+
+userId: string (reference to the admins, vendors, or customers collection)
+subject: string
+message: string
+status: string (values: open, in_progress, resolved)
+createdAt: timestamp
+updatedAt: timestamp
