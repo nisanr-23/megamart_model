@@ -1,0 +1,123 @@
+The data structure you’ve outlined for the multivendor e-commerce platform using Flutter and Firebase is well-organized and comprehensive. Here’s a summary of each collection and its fields:
+
+### 1. Admins Collection
+**Collection Name:** `admins`
+- **Document ID:** Admin ID
+- **Fields:**
+  - `name` (string)
+  - `email` (string)
+  - `profilePicture` (string, URL)
+  - `phone` (string)
+  - `createdAt` (timestamp)
+  - `updatedAt` (timestamp)
+
+### 2. Vendors Collection
+**Collection Name:** `vendors`
+- **Document ID:** Vendor ID
+- **Fields:**
+  - `name` (string)
+  - `email` (string)
+  - `shortDescription` (string)
+  - `vendorPhotoUrl` (string, URL)
+  - `businessName` (string)
+  - `businessLogoUrl` (string, URL)
+  - `businessAddress` (map)
+  - `nidPhotoUrl` (string)
+  - `street` (string)
+  - `city` (string)
+  - `state` (string)
+  - `zipCode` (string)
+  - `country` (string)
+  - `phone` (string)
+  - `approvalStatus` (string, values: pending, approved, rejected)
+  - `pendingApproval` (bool)
+  - `createdAt` (timestamp)
+  - `updatedAt` (timestamp)
+
+### 3. Customers Collection
+**Collection Name:** `customers`
+- **Document ID:** Customer ID
+- **Fields:**
+  - `name` (string)
+  - `email` (string)
+  - `profilePicture` (string, URL)
+  - `address` (map)
+  - `street` (string)
+  - `city` (string)
+  - `state` (string)
+  - `zipCode` (string)
+  - `country` (string)
+  - `phone` (string)
+  - `createdAt` (timestamp)
+  - `updatedAt` (timestamp)
+
+### 4. Products Collection
+**Collection Name:** `products`
+- **Document ID:** Product ID
+- **Fields:**
+  - `name` (string)
+  - `description` (string)
+  - `price` (number)
+  - `category` (string, reference to categories collection)
+  - `images` (array of strings, URLs)
+  - `vendorId` (string, reference to the vendors collection)
+  - `stock` (number)
+  - `approvalStatus` (string, values: pending, approved, rejected)
+  - `dynamicFields` (map)
+  - `createdAt` (timestamp)
+  - `updatedAt` (timestamp)
+
+### 5. Categories Collection
+**Collection Name:** `categories`
+- **Document ID:** Category ID
+- **Fields:**
+  - `name` (string)
+  - `description` (string)
+  - `imageUrl` (string, URL)
+  - `fields` (array of maps)
+    - `fieldName` (string)
+    - `fieldType` (string, values: text, number, dropdown, date)
+    - `options` (array of strings, only for dropdown field type)
+  - `fixedFields` (array of maps)
+    - `fieldName` (string)
+    - `fieldType` (string)
+
+### 6. Orders Collection
+**Collection Name:** `orders`
+- **Document ID:** Order ID
+- **Fields:**
+  - `customerId` (string, reference to the customers collection)
+  - `products` (array of maps)
+    - `productId` (string, reference to the products collection)
+    - `quantity` (number)
+    - `price` (number)
+  - `totalAmount` (number)
+  - `shippingAddress` (map)
+  - `orderStatus` (string, values: pending, shipped, delivered, cancelled)
+  - `createdAt` (timestamp)
+  - `updatedAt` (timestamp)
+  - `trackingNumber` (string)
+
+### 7. Promotions Collection
+**Collection Name:** `promotions`
+- **Document ID:** Promotion ID
+- **Fields:**
+  - `code` (string)
+  - `description` (string)
+  - `discountPercentage` (number)
+  - `validFrom` (timestamp)
+  - `validTo` (timestamp)
+  - `active` (boolean)
+
+### 8. Support Tickets Collection
+**Collection Name:** `support_tickets`
+- **Document ID:** Ticket ID
+- **Fields:**
+  - `userId` (string, reference to the admins, vendors, or customers collection)
+  - `subject` (string)
+  - `message` (string)
+  - `status` (string, values: open, in_progress, resolved)
+  - `createdAt` (timestamp)
+  - `updatedAt` (timestamp)
+
+This structure ensures a clear separation of concerns and allows for efficient data management and retrieval. Each collection is designed to hold relevant information for different aspects of the platform, facilitating robust functionality and scalability.
