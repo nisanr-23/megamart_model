@@ -1,0 +1,114 @@
+
+
+Admin Activities
+Admins have the highest level of access and can perform a wide range of activities to manage the platform.
+
+ User Management
+1. View All Users: Admins can view a list of all users, including customers and vendors.
+2. Edit User Profiles: Admins can update user profiles, including personal information and account settings.
+3. Approve/Reject Vendor Applications: Admins can review and approve or reject applications from potential vendors.
+4. Approve/Disapprove Vendor Selling Permissions: Admins can manage the selling permissions of vendors.
+5. Disable/Delete User Accounts: Admins can disable or permanently delete user accounts.
+
+ Product Management
+1. View All Products: Admins can see all products listed on the platform.
+2. Add/Edit/Delete Products: Admins can add new products, update existing ones, or delete products.
+3. Approve/Disapprove New Products: Admins review and approve or disapprove products submitted by vendors.
+4. Manage Product Categories: Admins can create, update, and delete product categories.
+5. Create/Manage Promotions and Discount Codes: Admins can create and manage promotional campaigns and discount codes.
+
+ Order Management
+1. View All Orders: Admins can see all orders placed on the platform.
+2. Update Order Statuses: Admins can update the status of orders (e.g., processing, shipped, delivered).
+3. Process Order Cancellations and Refunds: Admins can handle order cancellations and issue refunds.
+
+ Analytics and Reporting
+1. Access Sales Analytics: Admins can view detailed sales analytics.
+2. View Product Performance: Admins can analyze the performance of different products.
+3. User Engagement Reports: Admins can access reports on user engagement.
+4. Financial Reports: Admins can generate and view financial reports.
+
+ Support and Notifications
+1. Manage Support Tickets: Admins can view and respond to support tickets.
+2. Send Notifications: Admins can send notifications to users and vendors.
+
+ System Settings
+1. Configure System Settings: Admins can manage system-wide settings.
+2. Manage Email Templates: Admins can create and update email templates.
+3. Configure Security Options: Admins can manage security settings and permissions.
+
+ Vendor Activities
+Vendors manage their own products, orders, and performance analytics.
+
+ Profile Management
+1. Edit Profile Details: Vendors can update their own profile information.
+
+ Product Management
+1. Add Products: Vendors can add new products to their store.
+2. Edit Products: Vendors can update the details of their products.
+3. Delete Products: Vendors can remove products from their store.
+4. View Product Approval Status: Vendors can see the approval status of their products.
+
+ Order Management
+1. View Orders: Vendors can see orders for their products.
+2. Update Order Statuses: Vendors can update the status of orders for their products (e.g., processing, shipped).
+3. Manage Shipping Methods: Vendors can create and manage shipping methods for their products.
+
+ Analytics
+1. View Sales and Earnings Overview: Vendors can see an overview of their sales and earnings.
+2. Access Product Performance Analytics: Vendors can view detailed analytics on the performance of their products.
+
+ Support and Notifications
+1. Receive Notifications: Vendors receive notifications related to their orders and account.
+2. Submit Support Tickets: Vendors can submit support tickets for issues they encounter.
+
+ Customer Activities
+Customers interact with the platform to browse products, manage their cart, place orders, and view their order history.
+
+ Profile Management
+1. Edit Profile Details: Customers can update their own profile information.
+
+ Product Browsing
+1. Browse Products: Customers can browse products by category and vendor.
+2. View Product Details: Customers can view detailed information about products.
+
+ Cart and Wishlist Management
+1. Add to Cart: Customers can add products to their shopping cart.
+2. Manage Cart Items: Customers can view and update items in their cart.
+3. Add to Wishlist: Customers can add products to their wishlist.
+4. Manage Wishlist Items: Customers can view and update their wishlist items.
+
+ Order Management
+1. Place Orders: Customers can place orders for products.
+2. View Order History: Customers can see their order history.
+3. Track Orders: Customers can track the status of their orders.
+
+ Reviews and Ratings
+1. Leave Reviews: Customers can leave reviews and ratings for purchased products.
+
+ Loyalty Programs
+1. View Loyalty Points: Customers can view their loyalty points.
+2. Redeem Rewards: Customers can redeem loyalty program rewards.
+
+ Support and Notifications
+1. Receive Notifications: Customers receive notifications related to their orders and account.
+2. Submit Support Tickets: Customers can submit support tickets for issues they encounter.
+
+ Additional Activities
+
+ Notifications
+- Admin: Can send notifications to all users and vendors.
+- Vendor: Receives notifications related to their store activities.
+- Customer: Receives notifications related to their purchases and account activities.
+
+ Support Tickets
+- Admin: Can manage and respond to all support tickets.
+- Vendor: Can submit support tickets and view responses.
+- Customer: Can submit support tickets and view responses.
+
+ Analytics
+- Admin: Access to detailed analytics and reports across the entire platform.
+- Vendor: Access to analytics related to their store and products.
+- Customer: Basic engagement analytics, such as order history and wishlist items.
+
+This breakdown covers the various activities each user role can perform on the platform, providing a comprehensive overview of their capabilities.

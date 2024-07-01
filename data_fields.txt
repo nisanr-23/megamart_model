@@ -1,0 +1,445 @@
+Admin Collection:
+
+
+admins (collection)
+    |-- adminId (document)
+          |-- name: string
+          |-- email: string
+          |-- profile: map
+              |-- phone: string
+              |-- address: string
+              |-- dateOfBirth: timestamp
+              |-- profilePicture: string (URL)
+              |-- role: string (superadmin, manager, etc.)
+              |-- permissions: array
+                  |-- permission: string (manageUsers, manageProducts, etc.)
+              |-- dateJoined: timestamp
+              |-- lastLogin: timestamp
+              |-- emergencyContact: map
+                  |-- name: string
+                  |-- phone: string
+              |-- socialMedia: map
+                  |-- linkedin: string (URL)
+                  |-- twitter: string (URL)
+                  |-- facebook: string (URL)
+              |-- bio: string
+              |-- additionalInfo: map
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+Vendors Collection:
+
+
+vendors (collection)
+    |-- vendorId (document)
+          |-- name: string
+          |-- email: string
+          |-- profile: map
+              |-- storeName: string
+              |-- approved: boolean
+              |-- phone: string
+              |-- address: string
+              |-- dateOfBirth: timestamp
+              |-- ownerPhotoUrl: string (URL)
+              |-- storeLogoUrl: string (URL)
+              |-- nidPhotoUrl: string (URL)
+              |-- businessRegistrationNumber: string
+              |-- taxId: string
+              |-- bankAccountDetails: map
+                  |-- accountNumber: string
+                  |-- bankName: string
+                  |-- IFSC: string
+              |-- ratings: number
+              |-- dateJoined: timestamp
+              |-- lastLogin: timestamp
+              |-- emergencyContact: map
+                  |-- name: string
+                  |-- phone: string
+              |-- socialMedia: map
+                  |-- linkedin: string (URL)
+                  |-- twitter: string (URL)
+                  |-- facebook: string (URL)
+              |-- bio: string
+              |-- additionalInfo: map
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+Customer Collection:
+
+customers (collection)
+    |-- customerId (document)
+          |-- name: string
+          |-- email: string
+          |-- profile: map
+              |-- phone: string
+              |-- address: string
+              |-- dateOfBirth: timestamp
+              |-- profilePicture: string (URL)
+              |-- gender: string
+              |-- loyaltyPoints: number
+              |-- wishlist: array
+                  |-- productId: string (reference to products/productId)
+              |-- orderHistory: array
+                  |-- orderId: string (reference to orders/orderId)
+              |-- dateJoined: timestamp
+              |-- lastLogin: timestamp
+              |-- emergencyContact: map
+                  |-- name: string
+                  |-- phone: string
+              |-- socialMedia: map
+                  |-- linkedin: string (URL)
+                  |-- twitter: string (URL)
+                  |-- facebook: string (URL)
+              |-- bio: string
+              |-- additionalInfo: map
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+
+
+Products Collection:
+
+
+products (collection)
+    |-- productId (document)
+          |-- name: string
+          |-- description: string
+          |-- price: number
+          |-- categoryId: string (reference to categories/categoryId)
+          |-- vendorId: string (reference to vendors/vendorId)
+          |-- images: array
+          |-- stock: number
+          |-- status: string (approved/pending/disapproved)
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+          |-- attributes: map
+              |-- key: string
+              |-- value: string
+          |-- specifications: array of maps
+              |-- key: string
+              |-- value: string
+          |-- tags: array
+              |-- tag: string
+          |-- dimensions: map
+              |-- length: number
+              |-- width: number
+              |-- height: number
+          |-- weight: number
+          |-- manufacturerDetails: map
+              |-- name: string
+              |-- address: string
+              |-- contactNumber: string
+          |-- shippingDetails: map
+              |-- availableRegions: array
+                  |-- region: string
+              |-- estimatedDeliveryTime: string
+          |-- returnPolicy: string
+
+
+
+Order Collection:
+
+
+orders (collection)
+    |-- orderId (document)
+          |-- customerId: string (reference to customers/customerId)
+          |-- products: array of maps
+              |-- productId: string
+              |-- quantity: number
+              |-- price: number
+          |-- totalAmount: number
+          |-- status: string (pending/processing/shipped/delivered/cancelled)
+          |-- shippingAddress: map
+              |-- addressLine1: string
+              |-- addressLine2: string
+              |-- city: string
+              |-- state: string
+              |-- country: string
+              |-- postalCode: string
+          |-- billingAddress: map
+              |-- addressLine1: string
+              |-- addressLine2: string
+              |-- city: string
+              |-- state: string
+              |-- country: string
+              |-- postalCode: string
+          |-- paymentMethod: string
+          |-- paymentStatus: string (paid/pending/failed)
+          |-- shippingMethod: string
+          |-- trackingNumber: string
+          |-- deliveryDate: timestamp
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+
+Categories Collection:
+
+
+
+
+
+
+
+
+
+
+Reviews Collection:
+
+
+reviews (collection)
+    |-- reviewId (document)
+          |-- productId: string (reference to products/productId)
+          |-- customerId: string (reference to customers/customerId)
+          |-- rating: number
+          |-- comment: string
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+Support Tickets:
+
+supportTickets (collection)
+    |-- ticketId (document)
+          |-- userId: string (reference to users/userId)
+          |-- subject: string
+          |-- description: string
+          |-- status: string (open/closed/in-progress)
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+Inventory Collection:
+
+
+inventory (collection)
+    |-- inventoryId (document)
+          |-- productId: string (reference to products/productId)
+          |-- vendorId: string (reference to vendors/vendorId)
+          |-- stock: number
+          |-- reserved: number
+          |-- warehouseLocation: string
+          |-- updatedAt: timestamp
+
+
+
+
+Transaction Collection:
+
+
+transactions (collection)
+    |-- transactionId (document)
+          |-- orderId: string (reference to orders/orderId)
+          |-- userId: string (reference to customers/customerId)
+          |-- amount: number
+          |-- status: string (completed/pending/failed)
+          |-- paymentMethod: string
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+Shipping Methods:
+
+shippingMethods (collection)
+    |-- methodId (document)
+          |-- name: string
+          |-- description: string
+          |-- deliveryTime: string
+          |-- cost: number
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+Payment Method :
+
+
+paymentMethods (collection)
+    |-- methodId (document)
+          |-- name: string
+          |-- description: string
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+Discount Collection:
+
+
+discountCodes (collection)
+    |-- codeId (document)
+          |-- code: string
+          |-- description: string
+          |-- discountType: string (percentage/fixed)
+          |-- discountValue: number
+          |-- expirationDate: timestamp
+          |-- usageLimit: number
+          |-- usedCount: number
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+Loyalty Program:
+
+
+
+loyaltyPrograms (collection)
+    |-- programId (document)
+          |-- name: string
+          |-- description: string
+          |-- pointsPerDollarSpent: number
+          |-- rewardThreshold: number
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+Notification Collection:
+
+notifications (collection)
+    |-- notificationId (document)
+          |-- userId: string (reference to users/userId)
+          |-- type: string (order, promotion, support, etc.)
+          |-- message: string
+          |-- read: boolean
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+User Activities Collection:
+
+userActivities (collection)
+    |-- activityId (document)
+          |-- userId: string (reference to users/userId)
+          |-- activityType: string (login, logout, viewProduct, addToCart, etc.)
+          |-- details: map
+              |-- key: string
+              |-- value: string
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+Address Collection:
+
+addresses (collection)
+    |-- addressId (document)
+          |-- userId: string (reference to users/userId)
+          |-- addressType: string (home, work, etc.)
+          |-- addressLine1: string
+          |-- addressLine2: string
+          |-- city: string
+          |-- state: string
+          |-- country: string
+          |-- postalCode: string
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+
+WishList Collection:
+
+
+wishlists (collection)
+    |-- wishlistId (document)
+          |-- customerId: string (reference to customers/customerId)
+          |-- items: array
+              |-- productId: string (reference to products/productId)
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+Product Views Collection:
+
+productViews (collection)
+    |-- viewId (document)
+          |-- productId: string (reference to products/productId)
+          |-- userId: string (reference to users/userId)
+          |-- viewCount: number
+          |-- lastViewedAt: timestamp
+
+
+CartItems Collection
+
+cartItems (collection)
+    |-- cartItemId (document)
+          |-- customerId: string (reference to customers/customerId)
+          |-- productId: string (reference to products/productId)
+          |-- quantity: number
+          |-- addedAt: timestamp
+
+
+Promotions Collection:
+
+
+promotions (collection)
+    |-- promotionId (document)
+          |-- name: string
+          |-- description: string
+          |-- discountPercentage: number
+          |-- startDate: timestamp
+          |-- endDate: timestamp
+          |-- applicableProducts: array
+              |-- productId: string (reference to products/productId)
+          |-- createdAt: timestamp
+          |-- updatedAt: timestamp
+
+
+
+Messages Collection:
+
+messages (collection)
+    |-- messageId (document)
+          |-- senderId: string (reference to users/userId)
+          |-- receiverId: string (reference to users/userId)
+          |-- message: string
+          |-- createdAt: timestamp
+
+
+
+Reports Collection
+
+reports (collection)
+    |-- reportId (document)
+          |-- name: string
+          |-- type: string (sales, inventory, userActivity, etc.)
+          |-- generatedBy: string (reference to users/userId)
+          |-- createdAt: timestamp
+          |-- data: map
+
+
+Logs Collection
+
+
+logs (collection)
+    |-- logId (document)
+          |-- userId: string (reference to users/userId)
+          |-- action: string (create, update, delete, etc.)
+          |-- collection: string
+          |-- documentId: string
+          |-- timestamp: timestamp
+          |-- details: map
+              |-- key: string
+              |-- value: string
